@@ -1,12 +1,9 @@
-import { View, Text } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { Redirect } from "expo-router";
+import { View, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const index = () => {
-  return (
-    <SafeAreaView className='flex '>
-      <Text>index</Text>
-    </SafeAreaView>
-  )
-}
+  return <Redirect href="/(auth)/welcome" />;
+};
 
-export default index
+export default index;
