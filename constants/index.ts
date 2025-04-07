@@ -5,6 +5,7 @@ import waterPeople from "@/assets/images/water people.png";
 import person from "@/assets/icons/person.png";
 import mail from "@/assets/icons/mail.png";
 import lock from "@/assets/icons/lock.png";
+import check from "@/assets/icons/check.png";
 import google from "@/assets/icons/google.png";
 
 export const icons = {
@@ -12,6 +13,7 @@ export const icons = {
   mail,
   lock,
   google,
+  check,
 };
 
 export const images = {
