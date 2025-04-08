@@ -6,7 +6,7 @@ import {
 
 declare interface ButtonProps extends TouchableOpacityProps {
   title: string;
-  // bgVariant?: "primary" | "secondary" | "danger" | "outline" | "success";
+  bgVariant?: "primary" | "secondary" | "danger" | "outline" | "success";
   // textVariant?: "primary" | "default" | "secondary" | "danger" | "success";
   IconLeft?: React.ComponentType<any>;
   IconRight?: React.ComponentType<any>;
@@ -23,4 +23,13 @@ declare interface InputFieldProps extends TextInputProps {
   iconStyle?: string;
   className?: string;
   editable?: boolean;
+}
+
+declare interface IconProps{
+  back?: boolean;
+  logout?:boolean;
+  icon?: ImageSourcePropType;
+  backgroundColor?: string;
+  textIcon?:boolean;
+  onPress?: () => void;
 }

@@ -6,13 +6,19 @@ import person from "@/assets/icons/person.png";
 import mail from "@/assets/icons/mail.png";
 import lock from "@/assets/icons/lock.png";
 import check from "@/assets/icons/check.png";
+import statement from "@/assets/icons/statement.png";
+import home from "@/assets/icons/home.png";
+import logout from "@/assets/icons/logout.png";
 import google from "@/assets/icons/google.png";
 
 export const icons = {
   person,
   mail,
   lock,
+  logout,
   google,
+  home,
+  statement,
   check,
 };
 
