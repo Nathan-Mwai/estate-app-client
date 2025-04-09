@@ -2,13 +2,7 @@ import { icons } from "@/constants";
 import { IconProps } from "@/types/type";
 import { useUser } from "@clerk/clerk-expo";
 import { router } from "expo-router";
-import {
-  View,
-  Text,
-  ImageSourcePropType,
-  TouchableOpacity,
-  Image,
-} from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const CircleButton = ({
@@ -18,6 +12,7 @@ const CircleButton = ({
   textIcon,
   backgroundColor,
   onPress,
+  text,
   ...props
 }: IconProps) => {
   const { user } = useUser();
@@ -44,12 +39,17 @@ const CircleButton = ({
           </TouchableOpacity>
         )}
         {icon && (
-          <TouchableOpacity
-            onPress={onPress}
-            className={`justify-center items-center w-16 h-16 border bg-[#2B3443] rounded-full`}
-          >
-            <Image source={icon} className="h-7 w-7" />
-          </TouchableOpacity>
+          <>
+            <TouchableOpacity
+              onPress={onPress}
+              className={`justify-center items-center w-16 h-16  bg-[#F3D4A6] rounded-full`}
+            >
+              <Image source={icon} className="h-7 w-7" />
+            </TouchableOpacity>
+            <View className="flex items-center justify-center">
+              <Text className="text-lg font-IBM-medium">{text}</Text>
+            </View>
+          </>
         )}
         {textIcon && (
           <TouchableOpacity

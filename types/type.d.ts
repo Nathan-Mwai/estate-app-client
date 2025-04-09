@@ -31,5 +31,6 @@ declare interface IconProps{
   icon?: ImageSourcePropType;
   backgroundColor?: string;
   textIcon?:boolean;
+  text?: string;
   onPress?: () => void;
 }

@@ -8,6 +8,8 @@ import lock from "@/assets/icons/lock.png";
 import check from "@/assets/icons/check.png";
 import statement from "@/assets/icons/statement.png";
 import home from "@/assets/icons/home.png";
+import pay from "@/assets/icons/pay.png";
+import calculator from "@/assets/icons/calculator.png";
 import logout from "@/assets/icons/logout.png";
 import google from "@/assets/icons/google.png";
 
@@ -16,9 +18,11 @@ export const icons = {
   mail,
   lock,
   logout,
+  calculator,
   google,
   home,
   statement,
+  pay,
   check,
 };
 
