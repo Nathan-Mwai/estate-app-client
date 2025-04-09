@@ -1,3 +1,4 @@
+import TabBar from "@/components/TabBar";
 import { icons } from "@/constants";
 import { Tabs } from "expo-router";
 import { Image, ImageSourcePropType, View } from "react-native";
@@ -13,24 +14,25 @@ const TabIcon = ({source, focused}:{source: ImageSourcePropType, focused: boolea
 const TabLayout = () => (
   <Tabs
     initialRouteName="home"
-    screenOptions={{
-      tabBarActiveTintColor: "white",
-      tabBarInactiveTintColor: "white",
-      tabBarShowLabel: false,
-      tabBarStyle:{
-        backgroundColor: '#333',
-        borderTopLeftRadius:5,
-        borderTopRightRadius:5,
-        paddingBottom: 30,
-        overflow:"hidden",
-        height: 65,
-        display: 'flex',
-        justifyContent:'space-between',
-        alignItems:"center",
-        flexDirection:"row",
-        position:"absolute"
-      }
-    }}
+    tabBar={(props) => <TabBar {...props} />}
+    // screenOptions={{
+    //   tabBarActiveTintColor: "white",
+    //   tabBarInactiveTintColor: "white",
+    //   tabBarShowLabel: false,
+    //   tabBarStyle:{
+    //     backgroundColor: '#333',
+    //     borderTopLeftRadius:5,
+    //     borderTopRightRadius:5,
+    //     paddingBottom: 30,
+    //     overflow:"hidden",
+    //     height: 65,
+    //     display: 'flex',
+    //     justifyContent:'space-between',
+    //     alignItems:"center",
+    //     flexDirection:"row",
+    //     position:"absolute"
+    //   }
+    // }}
   >
     <Tabs.Screen
       name="home"
