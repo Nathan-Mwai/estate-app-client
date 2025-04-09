@@ -3,10 +3,29 @@ import { icons } from "@/constants";
 import { Tabs } from "expo-router";
 import { Image, ImageSourcePropType, View } from "react-native";
 
-const TabIcon = ({source, focused}:{source: ImageSourcePropType, focused: boolean}) => (
-  <View className={`flex flex-row justify-center items-center rounded-full ${focused? "bg-slate-300" : ""}`}>
-    <View className={`rounded-full w-12 h-12 items-center justify-center ${focused ? "bg-slate-400" :""} `}>
-      <Image source={source} tintColor="white" resizeMode="contain" className="w-7 h-7" />
+const TabIcon = ({
+  source,
+  focused,
+}: {
+  source: ImageSourcePropType;
+  focused: boolean;
+}) => (
+  <View
+    className={`flex flex-row justify-center items-center rounded-full ${
+      focused ? "bg-slate-300" : ""
+    }`}
+  >
+    <View
+      className={`rounded-full w-12 h-12 items-center justify-center ${
+        focused ? "bg-slate-400" : ""
+      } `}
+    >
+      <Image
+        source={source}
+        tintColor="white"
+        resizeMode="contain"
+        className="w-7 h-7"
+      />
     </View>
   </View>
 );
@@ -39,23 +58,29 @@ const TabLayout = () => (
       options={{
         title: "Home",
         headerShown: false,
-        tabBarIcon: ({focused}) => <TabIcon focused={focused} source={icons.home}/>,
+        tabBarIcon: ({ focused }) => (
+          <TabIcon focused={focused} source={icons.home} />
+        ),
       }}
     />
-      <Tabs.Screen
-        name="statement"
-        options={{
-          title: "Statements",
-          headerShown: false,
-          tabBarIcon: ({focused}) => <TabIcon focused={focused} source={icons.statement}/>,
-        }}
-      />
+    <Tabs.Screen
+      name="statement"
+      options={{
+        title: "Statements",
+        headerShown: false,
+        tabBarIcon: ({ focused }) => (
+          <TabIcon focused={focused} source={icons.statement} />
+        ),
+      }}
+    />
     <Tabs.Screen
       name="profile"
       options={{
         title: "Profile",
         headerShown: false,
-        tabBarIcon: ({focused}) => <TabIcon focused={focused} source={icons.person}/>,
+        tabBarIcon: ({ focused }) => (
+          <TabIcon focused={focused} source={icons.person} />
+        ),
       }}
     />
   </Tabs>

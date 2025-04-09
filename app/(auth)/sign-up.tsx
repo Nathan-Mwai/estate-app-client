@@ -8,7 +8,6 @@ import OAuth from "@/components/OAuth";
 import { useSignUp } from "@clerk/clerk-expo";
 import { ReactNativeModal } from "react-native-modal";
 
-
 const SignUp = () => {
   const { isLoaded, signUp, setActive } = useSignUp();
   const [showSuccessModal, setShowSuccessModal] = useState(false);
@@ -32,45 +31,45 @@ const SignUp = () => {
     try {
       await signUp.create({
         emailAddress: form.email,
-        password:form.password
-      })
+        password: form.password,
+      });
 
-      await signUp.prepareEmailAddressVerification({ strategy: 'email_code' })
+      await signUp.prepareEmailAddressVerification({ strategy: "email_code" });
 
-      setVerification({...verification, state:"pending"})
-    } catch (err:any) {
-      Alert.alert("Error", err.errors[0].longMessage)
+      setVerification({ ...verification, state: "pending" });
+    } catch (err: any) {
+      Alert.alert("Error", err.errors[0].longMessage);
     }
-  }
+  };
 
   // Handle submission of verification form
   const onVerifyPress = async () => {
-    if (!isLoaded) return
+    if (!isLoaded) return;
 
     try {
       const signUpAttempt = await signUp.attemptEmailAddressVerification({
-        code: verification.code
-      })
+        code: verification.code,
+      });
 
-      if (signUpAttempt.status === 'complete') {
+      if (signUpAttempt.status === "complete") {
         // TODO: Create a database user
-        await setActive({ session: signUpAttempt.createdSessionId })
-        setVerification({...verification, state:"success"})
+        await setActive({ session: signUpAttempt.createdSessionId });
+        setVerification({ ...verification, state: "success" });
       } else {
         setVerification({
           ...verification,
           error: "Verification failed",
-          state: "failed"
-        })
+          state: "failed",
+        });
       }
     } catch (err: any) {
       setVerification({
         ...verification,
         error: err.errors[0].longMessage,
-        state:"failed"
-      })
+        state: "failed",
+      });
     }
-  }
+  };
   return (
     <ScrollView className="flex-1 bg-white">
       <View className="flex-1 bg-white">
@@ -164,19 +163,16 @@ const SignUp = () => {
               source={icons.check}
               className="w-[110px] h-[110px] mx-auto my-5"
             />
-            <Text className="text-3xl font-IBM-bold text-center">
-              Verified
-            </Text>
+            <Text className="text-3xl font-IBM-bold text-center">Verified</Text>
             <Text className="text-base text-gray-400 font-IBM mt-2 text-center">
               You have successfully verified your account.
             </Text>
             <CustomButton
               title="Browse Home"
               onPress={() => {
-                setShowSuccessModal(false) 
-                router.push("/(root)/(tabs)/home")
-              }
-            }
+                setShowSuccessModal(false);
+                router.push("/(root)/(tabs)/home");
+              }}
               className="mt-5"
             />
           </View>

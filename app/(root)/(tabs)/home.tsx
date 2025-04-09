@@ -18,7 +18,7 @@ import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 const data = [
   {
     id: "1",
-    date:"01/07",
+    date: "01/07",
     curr: "1498",
     prev: "1493",
     units: "5",
@@ -26,7 +26,7 @@ const data = [
   },
   {
     id: "2",
-    date:"01/07",
+    date: "01/07",
     curr: "1498",
     prev: "1493",
     units: "5",
@@ -55,7 +55,7 @@ const data = [
   },
 ];
 const home = () => {
-  const renderItem = ({item}: any) => (
+  const renderItem = ({ item }: any) => (
     <View className="flex flex-row justify-between items-center">
       <Text className="text-white">{item.date}</Text>
       <Text className="text-white">{item.curr}</Text>
@@ -63,7 +63,7 @@ const home = () => {
       <Text className="text-white">{item.units}</Text>
       <Text className="text-white">{item.total}</Text>
     </View>
-  )
+  );
   const [refreshing, setRefreshing] = useState(false);
   const { user } = useUser();
   const onRefresh = useCallback(() => {
@@ -153,25 +153,29 @@ const home = () => {
                       </View>
                       <View className="border border-white mt-0.5" />
                       <FlatList
-                      className="mx-7"
-                        data={data.slice(0,2)}
+                        className="mx-7"
+                        data={data.slice(0, 2)}
                         keyExtractor={(item) => item.id.toString()}
                         renderItem={renderItem}
                       />
                     </View>
                   </View>
-                    <View className="mt-4 flex items-end">
-                      <Text className="text-xl">Pay Before: 01/01/2025</Text>
-                    </View>
+                  <View className="mt-4 flex items-end">
+                    <Text className="text-xl">Pay Before: 01/01/2025</Text>
+                  </View>
                 </View>
               </LinearGradient>
             </View>
             <View className="flex flex-row justify-between items-center mx-2 px-4 mt-6">
-            <CircleButton icon={icons.pay} text="Pay"/>
-            <CircleButton icon={icons.statement} text="Statement" onPress={()=> {
-              router.push("/(root)/(tabs)/statement")
-            }}/>
-            <CircleButton text="Calculator" icon={icons.calculator}/>
+              <CircleButton icon={icons.pay} text="Pay" />
+              <CircleButton
+                icon={icons.statement}
+                text="Statement"
+                onPress={() => {
+                  router.push("/(root)/(tabs)/statement");
+                }}
+              />
+              <CircleButton text="Calculator" icon={icons.calculator} />
             </View>
           </View>
         </ScrollView>
