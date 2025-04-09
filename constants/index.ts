@@ -13,6 +13,7 @@ import calculator from "@/assets/icons/calculator.png";
 import logout from "@/assets/icons/logout.png";
 import google from "@/assets/icons/google.png";
 
+
 export const icons = {
   person,
   mail,
